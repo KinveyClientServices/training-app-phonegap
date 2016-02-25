@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="msapplication-tap-highlight" content="no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' *; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <title>Hello World</title>
+    <link rel="stylesheet" href="bower_components/jquery-mobile-bower/css/jquery.mobile-1.4.5.min.css">
+    <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/jquery-mobile-bower/js/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+
+<div data-role="page" id="main-page">
+    <div role="main" class="ui-content">
+        <div id="tabs" data-role="tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#login" class="ui-btn-active">Login</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#todos">ToDos</a></li>
+                    <li><a href="#colloteral">Colloteral</a></li>
+                    <li><a href="#insert">Insert</a></li>
+                </ul>
+            </div>
+            <div id="login">
+                <div id="login-view">
+                    <div class="page-header">
+                        <h1>Login</h1>
+                    </div>
+                    <form id="login-form" action="#">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username"
+                                   ng-model="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password"
+                                   ng-model="password">
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+
+                    <p>Or</p>
+
+                    <button id="mic-login-btn">Login with MIC</button>
+                </div>
+                <div id="logout-view">
+                    <div class="page-header">
+                        <h1>Logout</h1>
+                    </div>
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+            <div id="products">
+                <h2>Products</h2>
+                <div class="row btn-wrapper">
+                    <button id="products-sort-btn">Sort</button>
+                    <button id="products-skip-btn">Skip</button>
+                    <button id="products-limit-btn">Limit4</button>
+                    <button id="products-load-btn">Reload data</button>
+                </div>
+
+                <ul data-role="listview" id="products-list" data-theme="a" data-split-icon="delete" data-split-theme="a"
+                    data-inset="true">
+                </ul>
+            </div>
+            <div id="partners">
+                <h2>VMWare Partners</h2>
+                <div class="row btn-wrapper">
+                    <button id="partners-load-btn">Reload data</button>
+                </div>
+
+                <ul data-role="listview" id="partners-list" data-theme="a" data-icon="false" data-split-theme="a"
+                    data-inset="true">
+                </ul>
+            </div>
+            <div id="todos">
+                <h2>HR Tasks
+                </h2>
+                <div class="row btn-wrapper">
+                    <button id="todos-refresh-btn">Refresh data</button>
+                    <button id="todos-sync-btn">Sync data</button>
+                </div>
+                <ul data-role="listview" id="todos-list" data-theme="a" data-split-icon="delete" data-icon="false" data-split-theme="a"
+                    data-inset="true">
+                </ul>
+                <div data-role="popup" id="popup-edit" data-theme="a" class="ui-corner-all" data-position-to="window">
+                    <form>
+                        <div style="padding:10px 20px;">
+                            <h3>Update ToDo action field:</h3>
+                            <label for="action-input" class="ui-hidden-accessible">Action:</label>
+                            <input type="text" name="action" id="action-input" value="" placeholder="action" data-theme="a">
+                            <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-check">Update</button>
+                            <button id="cancel-form" type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-delete">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="colloteral">
+                <h2>VMWare Collateral</h2>
+                <div class="row btn-wrapper">
+                    <button id="colloteral-load-btn">Reload data</button>
+                </div>
+
+                <ul data-role="listview" id="colloteral-list" data-theme="a" data-split-theme="a" data-inset="true">
+                </ul>
+            </div>
+            <div id="insert">
+                <h2>Data Inserts</h2>
+                <form id="insert-todo-form">
+                    <div class="form-group">
+                        <label for="action">Task</label>
+                        <input type="text" class="form-control" id="action" placeholder="Task" ng-model="action">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Due Date</label>
+                        <input type="date" class="form-control" id="date" placeholder="Due Date" ng-model="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="completed">Task Completed?</label>
+                        <input type="checkbox" class="form-control" id="completed" ng-model="completed">
+                    </div>
+                    <button type="submit">Insert</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="kinvey-lib/kinvey-phonegap-3.0.0-beta.8.min.js"></script>
+
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/products.js"></script>
+<script type="text/javascript" src="js/partners.js"></script>
+<script type="text/javascript" src="js/todos.js"></script>
+<script type="text/javascript" src="js/colloteral.js"></script>
+<script type="text/javascript">
+    app.initialize();
+</script>
+</body>
+</html>

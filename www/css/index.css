@@ -1,0 +1,8 @@
+.btn-wrapper button{
+    display: inline-block;
+    width: 24% !important;
+}
+
+#logout-view, #login-view{
+    display: none;
+}
