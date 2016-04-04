@@ -15,7 +15,7 @@ $('#products-limit-btn').click(function(){
 });
 
 function loadProducts(query) {
-    var dataStore = Kinvey.DataStore.getInstance('vProducts');
+    var dataStore = Kinvey.DataStore.getInstance('Products');
     var promise = dataStore.find(query);
     promise.then(function (result) {
         return result.networkPromise;
@@ -57,7 +57,7 @@ function deleteProductHandler() {
     var parent = $(this).parent("li"),
         id = parent.data("id");
 
-    var dataStore = Kinvey.DataStore.getInstance('vProducts');
+    var dataStore = Kinvey.DataStore.getInstance('Products');
     var promise = dataStore.removeById(id);
     promise.then(function () {
         console.log("delete with success");

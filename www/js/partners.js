@@ -4,7 +4,7 @@ $('#partners-load-btn').click(function () {
 
 
 function loadPartners() {
-    var dataStore = Kinvey.DataStore.getInstance('partner');
+    var dataStore = Kinvey.DataStore.getInstance('Partner');
     dataStore.find().then(function (result) {
         var cache = result.cache;
         return result.networkPromise;

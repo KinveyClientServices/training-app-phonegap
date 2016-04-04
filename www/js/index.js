@@ -43,8 +43,8 @@ var app = {
         Kinvey.init({
             apiHostName: 'https://baas.kinvey.com',
             micHostName: 'https://auth.kinvey.com',
-            appKey: 'kid_bJg1ypzual',
-            appSecret: 'd5e16c9315274c93920dc14f6ee79f0b'
+            appKey: 'kid_Wy7NMiwaTx',
+            appSecret: '18e581bc9c7046a5b1b20ae838105126'
         });
 
         Kinvey.User.getActiveUser().then(function (user) {

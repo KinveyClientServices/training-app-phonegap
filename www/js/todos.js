@@ -14,7 +14,7 @@ $('#insert-todo-form').submit(function(event){
         dueDate = new Date($('#date').val()).toISOString(),
         completed = $('#completed').is(':checked');
 
-    var dataStore = Kinvey.DataStore.getInstance('todo', Kinvey.DataStoreType.Sync);
+    var dataStore = Kinvey.DataStore.getInstance('Todo', Kinvey.DataStoreType.Sync);
     var promise = dataStore.save({
         action  : action,
         duedate : dueDate,
@@ -57,7 +57,7 @@ $("#popup-edit").submit(function (event) {
         })[0];
 
     todo.action = action;
-    var dataStore = Kinvey.DataStore.getInstance('todo', Kinvey.DataStoreType.Sync),
+    var dataStore = Kinvey.DataStore.getInstance('Todo', Kinvey.DataStoreType.Sync),
         promise = dataStore.save(todo);
     promise.then(function () {
         var listItem = $("li[data-id='" + id + "']");
@@ -76,19 +76,19 @@ $("#cancel-form").on('click',function(){
 });
 
 function loadTodos(){
-    var dataStore = Kinvey.DataStore.getInstance('todo', Kinvey.DataStoreType.Sync);
+    var dataStore = Kinvey.DataStore.getInstance('Todo', Kinvey.DataStoreType.Sync);
     var promise = dataStore.find();
     promise.then(fetchSuccessCallback).catch(fetchErrorCallback);
 }
 
 function refreshTodos() {
-    var dataStore = Kinvey.DataStore.getInstance('todo', Kinvey.DataStoreType.Sync);
+    var dataStore = Kinvey.DataStore.getInstance('Todo', Kinvey.DataStoreType.Sync);
     var promise = dataStore.pull();
     promise.then(fetchSuccessCallback).catch(fetchErrorCallback);
 }
 
 function syncTodos(){
-    var dataStore = Kinvey.DataStore.getInstance('todo', Kinvey.DataStoreType.Sync);
+    var dataStore = Kinvey.DataStore.getInstance('Todo', Kinvey.DataStoreType.Sync);
     var promise = dataStore.push();
     promise.then(function (result) {
         alert('Sync successfully ' + result.success.length + ' entities and failed to sync ' + result.error.length);
@@ -111,7 +111,7 @@ function deleteTodoHandler(e) {
     var parent = $(this).parent("li"),
         id = parent.data("id");
 
-    var dataStore = Kinvey.DataStore.getInstance('todo',Kinvey.DataStoreType.Sync);
+    var dataStore = Kinvey.DataStore.getInstance('Todo',Kinvey.DataStoreType.Sync);
     var promise = dataStore.removeById(id);
     promise.then(function () {
         console.log("delete with success");
