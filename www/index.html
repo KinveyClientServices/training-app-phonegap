@@ -29,6 +29,8 @@
                     <li><a href="#todos">ToDos</a></li>
                     <li><a href="#colloteral">Colloteral</a></li>
                     <li><a href="#insert">Insert</a></li>
+                    <li><a href="#media">Media</a></li>
+                    <li><a href="#employees">Employees</a></li>
                 </ul>
             </div>
             <div id="login">
@@ -133,6 +135,39 @@
                     <button type="submit">Insert</button>
                 </form>
             </div>
+            <div id="media">
+                <h2>Media
+                </h2>
+                <div class="row btn-wrapper">
+                    <button id="media-add-btn">Add media</button>
+                    <button id="media-reload-btn">Reload data</button>
+                </div>
+                <ul data-role="listview" id="media-list" data-theme="a" data-split-icon="delete" data-icon="false" data-split-theme="a"
+                    data-inset="true">
+                </ul>
+                <div data-role="popup" id="popup-edit-media" data-theme="a" class="ui-corner-all popup-edit-form" data-position-to="window">
+                    <form>
+                        <div style="padding:10px 20px;">
+                            <h3>Update Media name field:</h3>
+                            <label for="media-name-edit-input" class="ui-hidden-accessible">Name:</label>
+                            <input type="text" name="action" id="media-name-edit-input" value="" placeholder="action" data-theme="a">
+                            <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-check">Update</button>
+                            <button type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-delete form-cancel-btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div data-role="popup" id="popup-add-media" data-theme="a" class="ui-corner-all popup-edit-form" data-position-to="window">
+                    <form>
+                        <div style="padding:10px 20px;">
+                            <h3>Create Media entity:</h3>
+                            <label for="media-name-add-input" class="ui-hidden-accessible">Name:</label>
+                            <input type="text" name="name" id="media-name-add-input" value="" placeholder="name" data-theme="a">
+                            <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-check">Create</button>
+                            <button type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-delete form-cancel-btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -148,6 +183,7 @@
 <script type="text/javascript" src="js/partners.js"></script>
 <script type="text/javascript" src="js/todos.js"></script>
 <script type="text/javascript" src="js/colloteral.js"></script>
+<script type="text/javascript" src="js/media.js"></script>
 <script type="text/javascript">
     app.initialize();
 </script>

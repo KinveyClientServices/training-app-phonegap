@@ -73,6 +73,8 @@ var app = {
                     case 4:
                         loadColloteral();
                         break;
+                    case 6:
+                        loadMedia();
                 }
             }
         });
