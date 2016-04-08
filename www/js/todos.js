@@ -1,7 +1,8 @@
 var todos = [];
 
 $('#todos-refresh-btn').click(function(){
-    refreshTodos();
+    //refreshTodos();
+    loadTodos();
 });
 
 $('#todos-sync-btn').click(function(){
@@ -77,14 +78,13 @@ $("#cancel-form").on('click',function(){
 
 function loadTodos(){
     var dataStore = Kinvey.DataStore.getInstance('Todo', Kinvey.DataStoreType.Sync);
-    var promise = dataStore.find();
-    promise.then(fetchSuccessCallback).catch(fetchErrorCallback);
+    var promise = dataStore.find().then(fetchSuccessTodosCallback).catch(fetchErrorTodosCallback);
 }
 
 function refreshTodos() {
     var dataStore = Kinvey.DataStore.getInstance('Todo', Kinvey.DataStoreType.Sync);
     var promise = dataStore.pull();
-    promise.then(fetchSuccessCallback).catch(fetchErrorCallback);
+    promise.then(fetchSuccessTodosCallback).catch(fetchErrorTodosCallback);
 }
 
 function syncTodos(){
@@ -122,7 +122,8 @@ function deleteTodoHandler(e) {
     });
 }
 
-function fetchSuccessCallback(entities) {
+function fetchSuccessTodosCallback(entities) {
+    console.log(JSON.stringify(entities));
     todos = entities;
     var todosList = $('#todos-list');
     todosList.empty();
@@ -133,7 +134,7 @@ function fetchSuccessCallback(entities) {
     todosList.listview('refresh');
 }
 
-function fetchErrorCallback(err){
+function fetchErrorTodosCallback(err){
     alert("Error: " + err.description);
-    console.log("fetch partners error " + JSON.stringify(err));
+    console.log("fetch todos error " + JSON.stringify(err));
 }

@@ -75,6 +75,10 @@ var app = {
                         break;
                     case 6:
                         loadMedia();
+                        break;
+                    case 7:
+                        loadEmployees();
+                        break;
                 }
             }
         });

@@ -77,8 +77,9 @@ $(".form-cancel-btn").on('click', function () {
 
 function loadMedia() {
     console.log("get media");
-    var promise = Kinvey.DataStore.getInstance('Media', Kinvey.DataStoreType.Network).find();
-    promise.then(fetchSuccessCallback).catch(fetchErrorCallback);
+    var dataStore = Kinvey.DataStore.getInstance('Media', Kinvey.DataStoreType.Network);
+    var promise = dataStore.find();
+    promise.then(fetchSuccessMediaCallback).catch(fetchErrorMediaCallback);
 }
 
 function deleteMediaHandler(e) {
@@ -96,7 +97,7 @@ function deleteMediaHandler(e) {
     });
 }
 
-function fetchSuccessCallback(entities) {
+function fetchSuccessMediaCallback(entities) {
     media = entities;
     var mediaList = $('#media-list');
     mediaList.empty();
@@ -107,7 +108,7 @@ function fetchSuccessCallback(entities) {
     mediaList.listview('refresh');
 }
 
-function fetchErrorCallback(err) {
+function fetchErrorMediaCallback(err) {
     alert("Error: " + err.description);
     console.log("fetch partners error " + JSON.stringify(err));
 }

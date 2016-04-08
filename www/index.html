@@ -168,6 +168,31 @@
                     </form>
                 </div>
             </div>
+            <div id="employees">
+                <h2>Employees
+                </h2>
+                <div class="row btn-wrapper">
+                    <button id="employee-add-btn">Add employee</button>
+                    <button id="employee-find-btn">Find</button>
+                    <button id="employee-push-btn">Push</button>
+                    <button id="employee-pull-btn">Pull</button>
+                    <button id="employee-sync-btn">Sync</button>
+                </div>
+                <ul data-role="listview" id="employee-list" data-theme="a" data-split-icon="delete" data-icon="false" data-split-theme="a"
+                    data-inset="true">
+                </ul>
+                <div data-role="popup" id="popup-add-employee" data-theme="a" class="ui-corner-all popup-edit-form" data-position-to="window">
+                    <form>
+                        <div style="padding:10px 20px;">
+                            <h3>Create Employee entity:</h3>
+                            <label for="media-name-add-input" class="ui-hidden-accessible">Name:</label>
+                            <input type="text" name="name" id="employee-name-add-input" value="" placeholder="name" data-theme="a">
+                            <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-check">Create</button>
+                            <button type="button" class="ui-btn ui-corner-all ui-shadow ui-btn-icon-left ui-icon-delete form-cancel-btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -184,6 +209,7 @@
 <script type="text/javascript" src="js/todos.js"></script>
 <script type="text/javascript" src="js/colloteral.js"></script>
 <script type="text/javascript" src="js/media.js"></script>
+<script type="text/javascript" src="js/employees.js"></script>
 <script type="text/javascript">
     app.initialize();
 </script>
